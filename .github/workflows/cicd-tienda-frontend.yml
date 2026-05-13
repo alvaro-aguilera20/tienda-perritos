@@ -24,10 +24,12 @@ jobs:
 
     - name: Login en Amazon ECR (runner)
       uses: aws-actions/amazon-ecr-login@v1
+      with:
+        mask-password: true
 
     - name: Build imagen Frontend y push a ECR
       run: |
-        cd frontend
+        cd front_despacho
         docker build -t tienda-frontend .
         docker tag tienda-frontend:latest ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
         docker push ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
