@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "backend-d/**"
+      - "back-Despachos_SpringBoot/**"
 
 jobs:
   build-push-deploy-backend:
