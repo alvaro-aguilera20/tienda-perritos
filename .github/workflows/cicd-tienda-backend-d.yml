@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "back-Despachos_SpringBoot/**"
+      - "back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO/**"
 
 jobs:
   build-push-deploy-backend:
@@ -30,8 +30,8 @@ jobs:
     - name: Build imagen Backend y push a ECR
       run: |
         cd back-Despachos_SpringBoot\Springboot-API-REST-DESPACHO
-        docker build -t tienda-backend-d .
-        docker tag tienda-backend:latest ${{ secrets.ECR_REPO_URL_BACKEND_D }}:latest
+        docker build -t Dockerfile .
+        docker tag Dockerfile:latest ${{ secrets.ECR_REPO_URL_BACKEND_D }}:latest
         docker push ${{ secrets.ECR_REPO_URL_BACKEND_D }}:latest
 
     - name: Desplegar Backend vía SSM
