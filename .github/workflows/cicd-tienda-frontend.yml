@@ -30,8 +30,8 @@ jobs:
     - name: Build imagen Frontend y push a ECR
       run: |
         cd front_despacho
-        docker build -t Dockerfile .
-        docker tag Dockerfile:latest ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
+        docker build -t tienda-frontend .
+        docker tag tienda-frontend:latest ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
         docker push ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
 
     - name: Desplegar Frontend vía SSM
